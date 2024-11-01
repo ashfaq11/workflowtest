@@ -9,12 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run ESLint
-         env:
+        env:
           SOURCE_BRANCH: ${{ github.event.pull_request.head.ref }}
           TARGET_BRANCH: ${{ github.event.pull_request.base.ref }}
         run: |
           echo "test"
           echo $SOURCE_BRANCH
           echo $TARGET_BRANCH
-   
-           
