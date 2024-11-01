@@ -29,4 +29,4 @@ jobs:
           git config --local user.name "Ashfaq"
           git revert HEAD --no-edit
           git remote set-url origin https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git
-          git push --force origin main
+          git push --force origin main1
