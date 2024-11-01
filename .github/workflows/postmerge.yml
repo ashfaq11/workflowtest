@@ -3,7 +3,7 @@ name: Push to Main Task
 on:
   push:
     branches:
-      - main
+      - main1
 
 jobs:
   run-tests:
