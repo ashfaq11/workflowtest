@@ -1,0 +1,13 @@
+name: Pre-Merge Task
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+jobs:
+  pre-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run ESLint
+        run: |
+          echo "test"
