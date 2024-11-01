@@ -27,6 +27,7 @@ jobs:
         run: |
           git config --local user.email "ashfaqonly1@gmail.com"
           git config --local user.name "Ashfaq"
-          git revert HEAD~1 --no-edit  # Revert only the last commit
+          ls  # List files for debugging
+          git revert HEAD --no-edit  # Revert the last commit
           git remote set-url origin https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git  # Set remote URL with PAT
-          git push --force origin main  # Push the changes to main
+          git push --force origin main  # Push changes to main
