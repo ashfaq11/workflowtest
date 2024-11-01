@@ -26,6 +26,8 @@ jobs:
           PAT_TOKEN: ${{secrets.PAT_TOKEN}}
         run: |
           git fetch origin 
+
+          git checkout main2
           git log --oneline
           echo "Commit count: $(git rev-list --count HEAD)"
           git config --local user.email "ashfaqonly1@gmail.com"
