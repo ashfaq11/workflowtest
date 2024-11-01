@@ -27,4 +27,3 @@ jobs:
                 git config --local user.name "Ashfaq"
                 git revert HEAD --no-edit
                 git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ashfaq11/workflowtest.git main
-
