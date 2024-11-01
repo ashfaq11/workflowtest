@@ -46,5 +46,5 @@ featureFlags:
           onVariation: "true"
           offVariation: "false"
         state: "off"
-  projectIdentifier: triNet
-  orgIdentifier: default
+  projectIdentifier: test
+  orgIdentifier: test
