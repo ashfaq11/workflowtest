@@ -34,7 +34,7 @@ jobs:
           git config --local user.email "ashfaqonly1@gmail.com"
           git config --local user.name "Ashfaq"
           if [ $(git rev-list --count HEAD) -gt 1 ]; then
-            git revert HEAD --no-edit
+            git revert -m 1 HEAD --no-edit
             git status
             git remote set-url origin https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git
             git push origin main2
