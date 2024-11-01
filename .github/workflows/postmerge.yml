@@ -27,4 +27,5 @@ jobs:
           git config --local user.name "Ashfaq"
           ls
           git revert HEAD --no-edit
+          echo "revert done"
           git push --force https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git main
