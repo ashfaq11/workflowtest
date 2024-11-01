@@ -1,4 +1,4 @@
-name: Git Commands Workflow
+name: Push to Main Task
 
 on:
   push:
@@ -6,8 +6,10 @@ on:
       - main
 
 jobs:
-  run-git-commands:
+  run-tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allows the action to push to the repository
 
     steps:
       - name: Checkout code
@@ -15,15 +17,13 @@ jobs:
 
       - name: Run Check
         run: |
-          echo "Running test"
-          exit 1
+          echo "Running ESLint"
+          exit 1   
 
-      
-          
       - name: Revert last commit
-        if: failure()  # This step runs if the previous steps fail
+        if: failure()   
         env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+          PAT_TOKEN: ${{secrets.PAT_TOKEN }}
         run: |
           git config --local user.email "ashfaqonly1@gmail.com"
           git config --local user.name "Ashfaq"
