@@ -28,9 +28,7 @@ jobs:
         env:
           PAT_TOKEN: ${{secrets.PAT_TOKEN}}
         run: |
-          git fetch origin 
-
-          git checkout main2
+          #git fetch origin 
           git log --oneline
           echo "Commit count: $(git rev-list --count HEAD)"
           git config --local user.email "ashfaqonly1@gmail.com"
@@ -39,7 +37,7 @@ jobs:
             git reset --hard HEAD~1
             git status
             git remote set-url origin https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git
-            #git push origin main --force
+            git push origin main --force
           else
             echo "Not enough commits to revert"
           fi
