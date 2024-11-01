@@ -20,6 +20,11 @@ jobs:
           echo "Running ESLint"
           exit 1  # Simulating failure for testing purposes
 
+
+      - name: Debug commit count
+        run: |
+          echo "Commit count: $(git rev-list --count HEAD)"
+          git log --oneline
       - name: Revert last commit
         if: failure()  # This step runs if the previous steps fail
         env:
