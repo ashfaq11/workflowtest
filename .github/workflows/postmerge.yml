@@ -14,8 +14,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Check
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           echo "Running ESLint"
+          echo $PAT_TOKEN
           exit 1  
 
       - name: Revert last commit
