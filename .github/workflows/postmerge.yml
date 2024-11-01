@@ -8,20 +8,25 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Allows the action to push to the repository
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Run Check
-         run: |
+        run: |
           echo "Running ESLint"
-          npx eslint .  # Replace with your ESLint command
+          exit 1  # Simulating failure for testing purposes
 
       - name: Revert last commit
         if: failure()  # This step runs if the previous steps fail
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-           git config --local user.email "ashfaqonly1@gmail.com"
+          git config --local user.email "ashfaqonly1@gmail.com"
           git config --local user.name "Ashfaq"
           git revert HEAD --no-edit
-          git push origin main
+          git remote set-url origin https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git
+          git push --force origin main
