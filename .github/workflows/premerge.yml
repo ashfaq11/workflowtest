@@ -7,6 +7,7 @@ on:
 jobs:
   pre-merge:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.base.ref == 'main'
     steps:
       - name: Run ESLint
         env:
