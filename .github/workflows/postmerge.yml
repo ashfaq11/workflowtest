@@ -1,0 +1,30 @@
+name: Git Commands Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-git-commands:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Check
+        run: |
+          echo "Running test"
+          exit 1
+
+      - name: Revert last commit and push
+        if: failure()
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git config --local user.email "ashfaqonly1@gmail.com"
+          git config --local user.name "Ashfaq"
+          git revert HEAD --no-edit
+          git status
+          #git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/ashfaq11/workflowtest.git main
