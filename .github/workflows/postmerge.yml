@@ -34,10 +34,10 @@ jobs:
           git config --local user.email "ashfaqonly1@gmail.com"
           git config --local user.name "Ashfaq"
           if [ $(git rev-list --count HEAD) -gt 1 ]; then
-            git reset --hard HEAD~1
+            git revert HEAD --no-edit
             git status
-            #git remote set-url origin main2 https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git
-            git push origin main2 --force
+            git remote set-url origin https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git
+            git push origin main2
           else
             echo "Not enough commits to revert"
           fi
