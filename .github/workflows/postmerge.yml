@@ -25,7 +25,6 @@ jobs:
         run: |
           git config --local user.email "ashfaqonly1@gmail.com"
           git config --local user.name "Ashfaq"
-          ls
           git revert HEAD --no-edit
-          echo "revert done"
-          git push --force https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git main
+          git remote add origin https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git
+          git push --force origin main
