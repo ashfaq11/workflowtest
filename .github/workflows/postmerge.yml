@@ -19,7 +19,7 @@ jobs:
           exit 1  
 
       - name: Revert last commit
-        if: failure()  
+        if: failure()  # This step runs if the previous steps fail
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
