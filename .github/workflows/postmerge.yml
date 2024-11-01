@@ -3,7 +3,7 @@ name: Push to Main Task
 on:
   push:
     branches:
-      - main
+      - main2
 
 jobs:
   run-tests:
@@ -28,5 +28,6 @@ jobs:
           git config --local user.email "ashfaqonly1@gmail.com"
           git config --local user.name "Ashfaq"
           git revert HEAD --no-edit
+          git status
           git remote set-url origin https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git
-          git push --force origin main
+          #git push --force origin main2
