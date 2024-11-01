@@ -36,7 +36,7 @@ jobs:
           if [ $(git rev-list --count HEAD) -gt 1 ]; then
             git reset --hard HEAD~1
             git status
-            git remote set-url origin https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git
+            #git remote set-url origin main2 https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git
             git push origin main2 --force
           else
             echo "Not enough commits to revert"
