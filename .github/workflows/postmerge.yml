@@ -23,8 +23,8 @@ jobs:
         env:
           PAT_TOKEN: ${{secrets.PAT_TOKEN }}
         run: |
-            git config --local user.email "ashfaqonly1@gmail.com"
-            git config --local user.name "Ashfaq"
-            git revert HEAD --no-edit
-            git remote set-url origin https://$PAT_TOKEN@github.com/ashfaq11/workflowtest.git
-            git push --force origin main
+                git config --local user.email "ashfaqonly1@gmail.com"
+                git config --local user.name "Ashfaq"
+                git revert HEAD --no-edit
+                git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ashfaq11/workflowtest.git main
+
