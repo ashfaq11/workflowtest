@@ -21,11 +21,8 @@ jobs:
           exit 1  # Simulating failure for testing purposes
 
 
-      - name: Debug commit count
-        run: |
-          git log --oneline
-          echo "Commit count: $(git rev-list --count HEAD)"
-          
+      - name: Fetch latest commits
+        run: git fetch origin 
           
       - name: Revert last commit
         if: failure()  # This step runs if the previous steps fail
