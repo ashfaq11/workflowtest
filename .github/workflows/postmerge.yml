@@ -28,6 +28,8 @@ jobs:
         env:
           PAT_TOKEN: ${{secrets.PAT_TOKEN}}
         run: |
+          echo "Source branch: ${{ github.ref }}"
+          echo "Target branch: ${{ github.base_ref }}"
           #git fetch origin 
           git log --oneline
           echo "Commit count: $(git rev-list --count HEAD)"
