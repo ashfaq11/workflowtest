@@ -23,14 +23,18 @@ jobs:
 
       - name: Debug commit count
         run: |
-          echo "Commit count: $(git rev-list --count HEAD)"
           git log --oneline
+          echo "Commit count: $(git rev-list --count HEAD)"
+          
+          
       - name: Revert last commit
         if: failure()  # This step runs if the previous steps fail
         env:
           PAT_TOKEN: ${{secrets.PAT_TOKEN}}
         run: |
-         git config --local user.email "ashfaqonly1@gmail.com"
+          git log --oneline
+          echo "Commit count: $(git rev-list --count HEAD)"
+          git config --local user.email "ashfaqonly1@gmail.com"
           git config --local user.name "Ashfaq"
           if [ $(git rev-list --count HEAD) -gt 1 ]; then
             git reset --hard HEAD~1
