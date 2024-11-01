@@ -20,7 +20,7 @@ jobs:
 
       - name: Run Check
         run: |
-          echo "Running ESLint"
+          echo "Running test"
           exit 1  # Simulating failure for testing purposes
  
       - name: Revert last commit
